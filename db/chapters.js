@@ -1,91 +1,91 @@
 const dbChapters = [
     {
         id: "elem_math_12",
-        level: "12ème",
+        level: "12Ã¨me",
         series: null,
-        subject: "Mathématiques",
-        title: "Nombres et Calculs Élémentaires",
-        summary: "Apprentissage des chiffres de 0 à 100, additions et soustractions de base.",
+        subject: "MathÃ©matiques",
+        title: "Nombres et Calculs Ã‰lÃ©mentaires (12Ã¨me)",
+        summary: "Apprentissage de la numÃ©ration de 0 Ã  100, additions et soustractions simples.",
         lessons: [
-            { title: "1. Numération", content: "Comprendre la dizaine et l'unité." }
+            { title: "1. Les dizaines et unitÃ©s", content: "Un nombre Ã  deux chiffres est composÃ© d'une dizaine et d'unitÃ©s. Exemple : 34 = 3 dizaines et 4 unitÃ©s." }
         ],
         practicalExercises: [
-            { statement: "Calculer 15 + 12", correction: "15 + 12 = 27." }
+            { statement: "Calculer : 25 + 14", correction: "25 + 14 = (20 + 10) + (5 + 4) = 30 + 9 = 39." }
         ],
         questions: [
-            { question: "Combien font 10 + 15 ?", options: ["20", "25", "30", "35"], correctAnswer: 1, explanation: "10 + 15 = 25." }
+            { question: "Combien font 15 + 24 ?", options: ["35", "39", "40", "45"], correctAnswer: 1, explanation: "15 + 24 = 39." }
+        ]
+    },
+    {
+        id: "coll_math_6",
+        level: "6Ã¨me",
+        series: null,
+        subject: "MathÃ©matiques",
+        title: "Nombres DÃ©cimaux et OpÃ©rations (6Ã¨me)",
+        summary: "DÃ©couverte des nombres dÃ©cimaux, addition, soustraction et position de la virgule.",
+        lessons: [
+            { title: "1. Partie entiÃ¨re et partie dÃ©cimale", content: "Dans le nombre 12,35, 12 est la partie entiÃ¨re et 0,35 la partie dÃ©cimale." }
+        ],
+        practicalExercises: [
+            { statement: "Poser et calculer : 12,5 + 3,25", correction: "12,50 + 3,25 = 15,75." }
+        ],
+        questions: [
+            { question: "Quel est le chiffre des dixiÃ¨mes dans 45,89 ?", options: ["5", "8", "9", "4"], correctAnswer: 1, explanation: "Le chiffre des dixiÃ¨mes est le premier chiffre aprÃ¨s la virgule, soit 8." }
         ]
     },
     {
         id: "coll_math_3",
-        level: "3ème",
+        level: "3Ã¨me",
         series: null,
-        subject: "Mathématiques",
-        title: "Théorème de Pythagore et Calculs",
-        summary: "Propriétés du triangle rectangle en classe de troisième pour préparer le Brevet.",
+        subject: "MathÃ©matiques",
+        title: "ThÃ©orÃ¨me de Pythagore et Applications (3Ã¨me)",
+        summary: "Calcul des longueurs dans le triangle rectangle en vue du Brevet des CollÃ¨ges.",
         lessons: [
-            { title: "1. Théorème", content: "Dans un triangle rectangle, le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés." }
+            { title: "1. Ã‰galitÃ© de Pythagore", content: "Dans un triangle rectangle ABC rectangle en A : BCÂ² = ABÂ² + ACÂ²." }
         ],
         practicalExercises: [
-            { statement: "Triangle rectangle de côtés 3 et 4, trouver l'hypoténuse.", correction: "3² + 4² = 9 + 16 = 25. Racine de 25 = 5." }
+            { statement: "AB = 3 cm, AC = 4 cm. Calculer l'hypotÃ©nuse BC.", correction: "BCÂ² = 3Â² + 4Â² = 9 + 16 = 25. Donc BC = sqrt(25) = 5 cm." }
         ],
         questions: [
-            { question: "Que vaut l'hypoténuse si les côtés mesurent 3 et 4 ?", options: ["5", "6", "7", "12"], correctAnswer: 0, explanation: "D'après Pythagore, c = sqrt(3^2 + 4^2) = 5." }
+            { question: "Dans un triangle rectangle, quel est le cÃ´tÃ© le plus long ?", options: ["Le cÃ´tÃ© opposÃ©", "L'adjacent", "L'hypotÃ©nuse", "La hauteur"], correctAnswer: 2, explanation: "L'hypotÃ©nuse est toujours le cÃ´tÃ© opposÃ© Ã  l'angle droit et le plus long du triangle." }
         ]
     },
     {
         id: "term_math_c_d",
         level: "Terminale BACC",
-        series: ["Série C", "Série D"],
-        subject: "Mathématiques",
-        title: "Nombres Complexes et Analyse",
-        summary: "Forme algébrique z = a + ib, module, argument et fonctions exponentielles pour les séries C et D.",
+        series: ["SÃ©rie C", "SÃ©rie D"],
+        subject: "MathÃ©matiques",
+        title: "Nombres Complexes et GÃ©omÃ©trie (Terminale C & D)",
+        summary: "Forme algÃ©brique z = a + ib, module, argument et applications gÃ©omÃ©triques au BACC.",
         lessons: [
-            { title: "1. Forme Algébrique", content: "Un nombre complexe s'écrit z = a + ib avec i² = -1." }
+            { title: "1. Forme AlgÃ©brique et ConjuguÃ©", content: "Tout nombre complexe s'Ã©crit de maniÃ¨re unique z = a + ib. Son conjuguÃ© est z_barre = a - ib." }
         ],
         practicalExercises: [
-            { statement: "Calculer le module de z = 3 + 4i.", correction: "|z| = sqrt(3² + 4²) = 5." }
+            { statement: "Calculer le module de z = 3 + 4i.", correction: "|z| = sqrt(3Â² + 4Â²) = sqrt(9 + 16) = sqrt(25) = 5." }
         ],
         questions: [
-            { question: "Quel est le module de z = 3 + 4i ?", options: ["5", "7", "12", "25"], correctAnswer: 0, explanation: "Le module vaut 5." }
+            { question: "Quel est le module de z = 3 + 4i ?", options: ["5", "7", "12", "25"], correctAnswer: 0, explanation: "Le module est |z| = sqrt(3Â² + 4Â²) = 5." }
         ]
     },
     {
-        id: "term_philo_a",
-        level: "Terminale BACC",
-        series: ["Série A1", "Série A2"],
-        subject: "Philosophie",
-        title: "La Conscience et l'Inconscient",
-        summary: "Notions philosophiques majeures pour les séries littéraires (A1/A2).",
+        id: "bepc_phys_3",
+        level: "3Ã¨me",
+        series: null,
+        subject: "Physique-Chimie",
+        title: "Loi d'Ohm et Puissance Ã‰lectrique (3Ã¨me)",
+        summary: "Relations fondamentales U = R * i et P = U * i pour les circuits Ã©lectriques.",
         lessons: [
-            { title: "1. Le Sujet", content: "La conscience de soi et du monde." }
+            { title: "1. La Loi d'Ohm", content: "La tension U aux bornes d'un conducteur ohmique est proportionnelle Ã  l'intensitÃ© I : U = R * I." }
         ],
         practicalExercises: [
-            { statement: "Expliquer 'Conscience et liberté'.", correction: "Être conscient permet de choisir ses actes de manière réfléchie." }
+            { statement: "R = 100 Ohms, I = 0,05 A. Calculer U.", correction: "U = 100 * 0,05 = 5 Volts." }
         ],
         questions: [
-            { question: "Qui a fondé la psychanalyse ?", options: ["Descartes", "Sigmund Freud", "Platon", "Sartre"], correctAnswer: 1, explanation: "Sigmund Freud est le père de la psychanalyse." }
-        ]
-    },
-    {
-        id: "term_ses_ose",
-        level: "Terminale BACC",
-        series: ["Série OSE"],
-        subject: "SES",
-        title: "Croissance et Économie Internationale",
-        summary: "Analyse du PIB, des échanges internationaux et du développement pour la série OSE.",
-        lessons: [
-            { title: "1. Le PIB", content: "Indicateur de mesure de la production intérieure brute." }
-        ],
-        practicalExercises: [
-            { statement: "Définir la balance commerciale.", correction: "Différence entre les exportations et les importations de biens." }
-        ],
-        questions: [
-            { question: "Que mesure le PIB ?", options: ["La richesse créée", "La population totale", "Le taux d'inflation", "La dette publique"], correctAnswer: 0, explanation: "Le PIB mesure la valeur totale des biens et services produits." }
+            { question: "Quelle est l'unitÃ© de la rÃ©sistance Ã©lectrique ?", options: ["Volt", "AmpÃ¨re", "Ohm", "Watt"], correctAnswer: 2, explanation: "La rÃ©sistance s'exprime en Ohms (Î©)." }
         ]
     }
 ];
-
+Commande ECHO d‚sactiv‚e.
 const schoolDatabase = {
     levels: dbMetadata.levels,
     baccSeries: dbMetadata.baccSeries,
