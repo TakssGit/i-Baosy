@@ -91,7 +91,7 @@ Commande ECHO d�sactiv�e.
         questions: [{ question: "Quelle est l'unité de l'intensité ?", options: ["Volt", "Ampère", "Ohm", "Watt"], correctAnswer: 1, explanation: "L'intensité se mesure en Ampères." }]
     },
 Commande ECHO d�sactiv�e.
-    // --- LYCEE 
+    // --- LYCEE ET BACC ---
     {
         id: "lyc_phys_2nde",
         level: "2nde",
@@ -109,7 +109,7 @@ Commande ECHO d�sactiv�e.
         series: null,
         subject: "Anglais",
         title: "Past Tense and Present Perfect",
-        summary: "Grammaire anglaise avancée pour l'exprimer des actions passées.",
+        summary: "Grammaire anglaise avancée pour l'expression des actions passées.",
         lessons: [{ title: "1. Present Perfect", content: "Formé avec have/has + participe passé pour un lien avec le présent." }],
         practicalExercises: [{ statement: "Traduire : 'J'ai déjà visité Madagascar.'", correction: "'I have already visited Madagascar.'" }],
         questions: [{ question: "Quel auxiliaire utilise-t-on au Present Perfect avec 'He' ?", options: ["have", "has", "did", "is"], correctAnswer: 1, explanation: "On utilise 'has' à la 3e personne du singulier." }]
@@ -119,7 +119,7 @@ Commande ECHO d�sactiv�e.
         level: "Terminale BACC",
         series: ["Série C", "Série D"],
         subject: "Mathématiques",
-        title: "Nombres Complexes et Analyse (Terminale C & D)",
+        title: "Nombres Complexes et Analyse (Terminale C et D)",
         summary: "Forme algébrique, exponentielles et calcul intégral pour le BACC scientifique.",
         lessons: [{ title: "1. Forme algébrique", content: "z = a + ib avec i² = -1." }],
         practicalExercises: [{ statement: "Calculer le module de z = 3 + 4i", correction: "|z| = 5." }],
