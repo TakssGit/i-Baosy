@@ -1,20 +1,20 @@
 @echo off
 setlocal enabledelayedexpansion
-title EduSphere / i-baosy - Mise a jour MOD-07 (PostgreSQL DB)
+title EduSphere / i-baosy - Mise a jour MOD-08 (Auth JWT)
 
 set LOG_FILE=update_log.txt
 echo ==================================================== >> %LOG_FILE%
-echo RAPPORT DE MISE A JOUR - ETAPE [MOD-07] (POSTGRESQL) >> %LOG_FILE%
+echo RAPPORT DE MISE A JOUR - ETAPE [MOD-08] (AUTH JWT) >> %LOG_FILE%
 echo Date : %DATE% - Heure : %TIME% >> %LOG_FILE%
 echo ==================================================== >> %LOG_FILE%
 echo. >> %LOG_FILE%
 
-echo [1/4] Mise a jour du fichier package.json pour inclure le client PostgreSQL (^'pg^')...
+echo [1/3] Mise a jour de package.json avec jsonwebtoken et bcrypt...
 (
 echo {
 echo   "name": "edusphere-ibaosy-backend",
-echo   "version": "1.1.0",
-echo   "description": "API Backend avec PostgreSQL pour EduSphere / i-baosy",
+echo   "version": "1.2.0",
+echo   "description": "API Backend avec Auth JWT pour EduSphere / i-baosy",
 echo   "main": "server.js",
 echo   "scripts": {
 echo     "start": "node server.js"
@@ -22,104 +22,86 @@ echo   },
 echo   "dependencies": {
 echo     "express": "^4.19.2",
 echo     "cors": "^2.8.5",
-echo     "pg": "^8.11.3"
+echo     "pg": "^8.11.3",
+echo     "jsonwebtoken": "^9.0.2",
+echo     "bcrypt": "^5.1.1"
 echo   }
 echo }
 ) > package.json
 if %errorlevel% equ 0 (
-    echo [SUCCES] package.json mis a jour avec le module pg. >> %LOG_FILE%
+    echo [SUCCES] package.json mis a jour avec dependances JWT. >> %LOG_FILE%
 ) else (
     echo [ERREUR] echec de mise a jour package.json. >> %LOG_FILE%
 )
 
-echo [2/4] Creation du module de connexion a la base de donnees (db.js)...
-(
-echo const { Pool } = require(^'pg^');
-echo 
-echo // Configuration du pool de connexion PostgreSQL ^(parametres locaux ou variables d'environnement^)
-echo const pool = new Pool({
-echo   connectionString: process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/edusphere_ibaosy_prod',
-echo   ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false
-echo });
-echo 
-echo pool.on('connect', () =^> {
-echo     console.log('Connexion etablie avec succes a la base de donnees PostgreSQL.');
-echo });
-echo 
-echo module.exports = {
-echo   query: (text, params) =^> pool.query(text, params),
-echo };
-) > db.js
-if %errorlevel% equ 0 (
-    echo [SUCCES] db.js cree avec succes. >> %LOG_FILE%
-) else (
-    echo [ERREUR] echec de creation de db.js. >> %LOG_FILE%
-)
-
-echo [3/4] Mise a jour de server.js pour utiliser PostgreSQL...
+echo [2/3] Ajout des routes d'authentification dans server.js...
 (
 echo const express = require(^'express^');
 echo const cors = require(^'cors^');
+echo const jwt = require(^'jsonwebtoken^');
 echo const db = require(^'./db^');
 echo const app = express();
 echo const PORT = process.env.PORT || 3000;
+echo const JWT_SECRET = process.env.JWT_SECRET || 'edusphere_secret_key_2026';
 echo 
 echo app.use(cors());
 echo app.use(express.json());
 echo 
-echo // Route API pour recuperer les chapitres depuis PostgreSQL
+echo // Route de connexion (Login Mock / DB)
+echo app.post(^'/api/auth/login^', async (req, res) =^> {
+echo     const { username, password } = req.body;
+echo     // Simulation de verification institutionnelle
+echo     if (username === 'admin' && password === 'admin2026') {
+echo         const token = jwt.sign({ username: 'admin', role: 'administrator' }, JWT_SECRET, { expiresIn: '24h' });
+echo         return res.json({ success: true, token, role: 'administrator' });
+echo     }
+echo     res.status(401).json({ success: false, message: 'Identifiants invalides' });
+echo });
+echo 
+echo // Route API chapitres
 echo app.get(^'/api/chapters^', async (req, res) =^> {
 echo     try {
-echo         // Tentative de requete SQL sur la table chapters
 echo         const result = await db.query('SELECT * FROM chapters');
 echo         res.json({ success: true, count: result.rows.length, data: result.rows });
 echo     } catch (err) {
-echo         // Fallback de secours si la base PostgreSQL locale n'est pas encore initialisee
-echo         console.log('DB Notice: Utilisation des donnees de secours (fallback).');
 echo         const fallbackData = [
 echo             {
 echo                 id: "term_math_1",
 echo                 level: "Terminale BACC",
 echo                 subject: "Mathématiques",
 echo                 title: "Nombres Complexes et Géométrie",
-echo                 summary: "Les nombres complexes s'écrivent sous la forme z = a + ib. Leur module et leur argument permettent de résoudre des configurations géométriques."
+echo                 summary: "Les nombres complexes s'écrivent sous la forme z = a + ib."
 echo             }
 echo         ];
 echo         res.json({ success: true, count: fallbackData.length, data: fallbackData, source: "fallback" });
 echo     }
 echo });
 echo 
-echo // Route de test de sante incluant le statut DB
-echo app.get(^'/api/health^', async (req, res) =^> {
-echo     try {
-echo         await db.query('SELECT 1');
-echo         res.json({ status: "UP", database: "Connected (PostgreSQL)", service: "EduSphere API", timestamp: new Date() });
-echo     } catch (err) {
-echo         res.json({ status: "UP", database: "Disconnected / Standalone Mode", service: "EduSphere API", timestamp: new Date() });
-echo     }
+echo app.get(^'/api/health^', (req, res) =^> {
+echo     res.json({ status: "UP", service: "EduSphere API Auth Ready", timestamp: new Date() });
 echo });
 echo 
 echo app.listen(PORT, () =^> {
-echo     console.log(`Serveur EduSphere connecte actif sur http://localhost:${PORT}`);
+echo     console.log(`Serveur EduSphere securise actif sur http://localhost:${PORT}`);
 echo });
 ) > server.js
 if %errorlevel% equ 0 (
-    echo [SUCCES] server.js mis a jour avec integration PostgreSQL. >> %LOG_FILE%
+    echo [SUCCES] server.js mis a jour avec les routes JWT. >> %LOG_FILE%
 ) else (
     echo [ERREUR] echec de mise a jour server.js. >> %LOG_FILE%
 )
 
-echo [4/4] Synchronisation avec Git...
+echo [3/3] Synchronisation avec Git...
 git add . >> %LOG_FILE% 2>&1
-git commit -m "feat: implementation de MOD-07 connexion PostgreSQL et pool de donnees backend" >> %LOG_FILE% 2>&1
+git commit -m "feat: implementation de MOD-08 authentification JWT et securisation backend" >> %LOG_FILE% 2>&1
 git push origin main >> %LOG_FILE% 2>&1
 if %errorlevel% equ 0 (
     echo [SUCCES] Pousse Git effectuee avec succes. >> %LOG_FILE%
 ) else (
-    echo [INFO] Erreur potentielle lors du push Git ou aucun changement majeur. >> %LOG_FILE%
+    echo [INFO] Erreur potentielle lors du push Git. >> %LOG_FILE%
 )
 
-echo Termine ! Etape [MOD-07] accomplie avec succes.
+echo Termine ! Etape [MOD-08] accomplie.
 echo. >> %LOG_FILE%
-echo Fin de l'etape MOD-07. Rapport mis a jour dans update_log.txt. >> %LOG_FILE%
+echo Fin de l'etape MOD-08. Rapport consigne dans update_log.txt. >> %LOG_FILE%
 pause
