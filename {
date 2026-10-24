@@ -1,0 +1,9 @@
+const CACHE_NAME = 'edusphere-ibaosy-v13-final';
+const assetsToCache = [
+  './index.html',
+  './data.js',
+  './app.js',
+  './manifest.json'
+];
+Commande ECHO d‚sactiv‚e.
+self.addEventListener('install', (event
