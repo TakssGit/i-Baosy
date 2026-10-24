@@ -1,125 +1,91 @@
 const dbChapters = [
     {
-        id: "elem_math_12_add",
-        level: "12Ã¨me",
+        id: "elem_math_12",
+        level: "12ème",
         series: null,
-        subject: "MathÃ©matiques",
-        title: "Addition et Calcul Mental Ã‰lÃ©mentaire",
-        summary: "Apprendre Ã  regrouper les unitÃ©s et les dizaines pour effectuer des additions simples.",
+        subject: "Mathématiques",
+        title: "Nombres et Calculs Élémentaires",
+        summary: "Apprentissage des chiffres de 0 à 100, additions et soustractions de base.",
         lessons: [
-            { title: "1. Le principe de l'addition", content: "L'addition consiste Ã  assembler deux quantitÃ©s. Exemple : 12 + 15 = 27." }
+            { title: "1. Numération", content: "Comprendre la dizaine et l'unité." }
         ],
         practicalExercises: [
-            { statement: "Calculez la somme : 24 + 35.", correction: "24 + 35 = (20 + 30) + (4 + 5) = 59." }
+            { statement: "Calculer 15 + 12", correction: "15 + 12 = 27." }
         ],
         questions: [
-            { question: "Combien font 18 + 12 ?", options: ["28", "30", "32", "40"], correctAnswer: 1, explanation: "18 + 12 = 30." }
+            { question: "Combien font 10 + 15 ?", options: ["20", "25", "30", "35"], correctAnswer: 1, explanation: "10 + 15 = 25." }
         ]
     },
     {
-        id: "coll_francais_6_recit",
-        level: "6Ã¨me",
+        id: "coll_math_3",
+        level: "3ème",
         series: null,
-        subject: "FranÃ§ais",
-        title: "Les Structures du RÃ©cit et la Narration",
-        summary: "Ã‰tude des temps du rÃ©cit au passÃ© (passÃ© simple, imparfait) et de la structure d'un conte.",
+        subject: "Mathématiques",
+        title: "Théorème de Pythagore et Calculs",
+        summary: "Propriétés du triangle rectangle en classe de troisième pour préparer le Brevet.",
         lessons: [
-            { title: "1. Imparfait et PassÃ© Simple", content: "L'imparfait exprime une action longue ou un dÃ©cor, le passÃ© simple une action brÃ¨ve et ponctuelle." }
+            { title: "1. Théorème", content: "Dans un triangle rectangle, le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés." }
         ],
         practicalExercises: [
-            { statement: "Conjuguez au passÃ© simple : 'Il (prendre) son sac et (partir).'", correction: "Il prit son sac et partit." }
+            { statement: "Triangle rectangle de côtés 3 et 4, trouver l'hypoténuse.", correction: "3² + 4² = 9 + 16 = 25. Racine de 25 = 5." }
         ],
         questions: [
-            { question: "Quel temps exprime une action brÃ¨ve au second plan du rÃ©cit ?", options: ["L'imparfait", "Le passÃ© simple", "Le prÃ©sent", "Le futur"], correctAnswer: 1, explanation: "Le passÃ© simple est le temps de l'action principale et ponctuelle dans le rÃ©cit." }
+            { question: "Que vaut l'hypoténuse si les côtés mesurent 3 et 4 ?", options: ["5", "6", "7", "12"], correctAnswer: 0, explanation: "D'après Pythagore, c = sqrt(3^2 + 4^2) = 5." }
         ]
     },
     {
-        id: "bepc_phys_3_electricite",
-        level: "3Ã¨me",
-        series: null,
-        subject: "Physique-Chimie",
-        title: "Loi d'Ohm et Circuits Ã‰lectriques",
-        summary: "Relation fondamentale entre la tension U, l'intensitÃ© I et la rÃ©sistance R (U = R x I).",
-        lessons: [
-            { title: "1. EnoncÃ© de la loi d'Ohm", content: "U = R x I avec U en Volts, R en Ohms et I en AmpÃ¨res." }
-        ],
-        practicalExercises: [
-            { statement: "R = 50 Ohms, I = 0,2 A. Calculer U.", correction: "U = 50 x 0,2 = 10 Volts." }
-        ],
-        questions: [
-            { question: "Quelle est l'unitÃ© de la rÃ©sistance ?", options: ["Volt", "AmpÃ¨re", "Ohm", "Watt"], correctAnswer: 2, explanation: "L'unitÃ© lÃ©gale est l'Ohm (Î©)." }
-        ]
-    },
-    {
-        id: "seconde_svt_cellule",
-        level: "2nde",
-        series: null,
-        subject: "SVT",
-        title: "La Cellule, UnitÃ© Vivante",
-        summary: "Structure cellulaire, membrane, cytoplasme et noyau chez les Ãªtres vivants.",
-        lessons: [
-            { title: "1. Organisation cellulaire", content: "La cellule est l'unitÃ© structurelle et fonctionnelle de tous les Ãªtres vivants." }
-        ],
-        practicalExercises: [
-            { statement: "Quel organite contient l'information gÃ©nÃ©tique (ADN) ?", correction: "Le noyau cellulaire." }
-        ],
-        questions: [
-            { question: "OÃ¹ se situe l'ADN dans une cellule eucaryote ?", options: ["Dans le cytoplasme", "Dans le noyau", "Dans la membrane", "Dans la vacuole"], correctAnswer: 1, explanation: "L'ADN est principalement stockÃ© dans le noyau de la cellule eucaryote." }
-        ]
-    },
-    {
-        id: "term_math_c_complexes",
+        id: "term_math_c_d",
         level: "Terminale BACC",
-        series: ["SÃ©rie C", "SÃ©rie D"],
-        subject: "MathÃ©matiques",
-        title: "Nombres Complexes et GÃ©omÃ©trie",
-        summary: "Forme algÃ©brique z = a + ib, module, argument et applications gÃ©omÃ©triques au BACC.",
+        series: ["Série C", "Série D"],
+        subject: "Mathématiques",
+        title: "Nombres Complexes et Analyse",
+        summary: "Forme algébrique z = a + ib, module, argument et fonctions exponentielles pour les séries C et D.",
         lessons: [
-            { title: "1. Module d'un complexe", content: "|z| = sqrt(aÂ² + bÂ²)." }
+            { title: "1. Forme Algébrique", content: "Un nombre complexe s'écrit z = a + ib avec i² = -1." }
         ],
         practicalExercises: [
-            { statement: "Calculer le module de z = 3 + 4i.", correction: "|z| = sqrt(9 + 16) = 5." }
+            { statement: "Calculer le module de z = 3 + 4i.", correction: "|z| = sqrt(3² + 4²) = 5." }
         ],
         questions: [
-            { question: "Quel est le module de z = 3 + 4i ?", options: ["5", "7", "12", "25"], correctAnswer: 0, explanation: "Le module est Ã©gal Ã  5." }
+            { question: "Quel est le module de z = 3 + 4i ?", options: ["5", "7", "12", "25"], correctAnswer: 0, explanation: "Le module vaut 5." }
         ]
     },
     {
-        id: "term_philo_a_conscience",
+        id: "term_philo_a",
         level: "Terminale BACC",
-        series: ["SÃ©rie A1", "SÃ©rie A2"],
+        series: ["Série A1", "Série A2"],
         subject: "Philosophie",
         title: "La Conscience et l'Inconscient",
-        summary: "Ã‰tude du sujet pensant chez Descartes et remise en cause par la psychanalyse freudienne.",
+        summary: "Notions philosophiques majeures pour les séries littéraires (A1/A2).",
         lessons: [
-            { title: "1. Le Cogito", content: "Je pense donc je suis." }
+            { title: "1. Le Sujet", content: "La conscience de soi et du monde." }
         ],
         practicalExercises: [
-            { statement: "En quoi Freud rÃ©volutionne-t-il la notion de sujet ?", correction: "En dÃ©montrant que le psychisme humain ne se rÃ©duit pas Ã  la conscience." }
+            { statement: "Expliquer 'Conscience et liberté'.", correction: "Être conscient permet de choisir ses actes de manière réfléchie." }
         ],
         questions: [
-            { question: "Qui est l'auteur de la psychanalyse ?", options: ["Descartes", "Platon", "Sigmund Freud", "Kant"], correctAnswer: 2, explanation: "Sigmund Freud est le pÃ¨re de la psychanalyse." }
+            { question: "Qui a fondé la psychanalyse ?", options: ["Descartes", "Sigmund Freud", "Platon", "Sartre"], correctAnswer: 1, explanation: "Sigmund Freud est le père de la psychanalyse." }
         ]
     },
     {
-        id: "term_ses_ose_croissance",
+        id: "term_ses_ose",
         level: "Terminale BACC",
-        series: ["SÃ©rie OSE"],
+        series: ["Série OSE"],
         subject: "SES",
-        title: "Croissance et DÃ©veloppement Ã‰conomique",
-        summary: "Analyse du PIB, des facteurs de production et du dÃ©veloppement durable.",
+        title: "Croissance et Économie Internationale",
+        summary: "Analyse du PIB, des échanges internationaux et du développement pour la série OSE.",
         lessons: [
-            { title: "1. Le PIB", content: "Mesure la valeur ajoutÃ©e totale produite sur le territoire national." }
+            { title: "1. Le PIB", content: "Indicateur de mesure de la production intérieure brute." }
         ],
         practicalExercises: [
-            { statement: "DÃ©finir la croissance Ã©conomique.", correction: "Augmentation soutenue de la production de biens et services d'une nation." }
+            { statement: "Définir la balance commerciale.", correction: "Différence entre les exportations et les importations de biens." }
         ],
         questions: [
-            { question: "Quel indicateur mesure la richesse globale crÃ©Ã©e ?", options: ["IDH", "PIB", "IPC", "Taux de chÃ´mage"], correctAnswer: 1, explanation: "Le PIB est l'indicateur clÃ© de la croissance." }
+            { question: "Que mesure le PIB ?", options: ["La richesse créée", "La population totale", "Le taux d'inflation", "La dette publique"], correctAnswer: 0, explanation: "Le PIB mesure la valeur totale des biens et services produits." }
         ]
     }
 ];
-Commande ECHO d‚sactiv‚e.
+
 const schoolDatabase = {
     levels: dbMetadata.levels,
     baccSeries: dbMetadata.baccSeries,
